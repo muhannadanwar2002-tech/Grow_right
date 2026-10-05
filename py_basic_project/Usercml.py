@@ -18,10 +18,10 @@ try:
         print()
         try:
             print("debugging")
-            Dictionary_Cities[city].suitability(plant)
+            print(Dictionary_Cities[city].suitability(plant))
             print("debugging")
             print("Growing Guide:")
-            Dictionary_Plants[plant].grow_right()
+            print(Dictionary_Plants[plant].grow_right())
         except(Exception):
             print("Not in DataBase")  
         
