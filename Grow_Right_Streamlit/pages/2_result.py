@@ -42,28 +42,14 @@ else:
         plant = Dictionary_Plants[plant_name]
         score = city.score_calculator(plant_name)
 
-        # same result rules used in City.suitability()
-        if score >= 80:
-            status = "Highly Suitable"
-        elif score >= 60:
-            status = "Suitable"
-        else:
-            status = "Not Suitable"
-
         st.subheader(plant_name.title() + " in " + city.name)
         st.write("Suitability Score:", score, "%")
-        st.write("Status:", status)
+        st.write("Status:", city.suitability(plant_name))
 
         st.subheader("Growing Guide")
 
         # plant information comes from the existing Plants object
-        st.write("Optimal Temperature:", plant.temp[0], "to", plant.temp[1])
-        st.write("Humidity:", plant.hum)
-        st.write("Best Season:", plant.P_season)
-        st.write("Soil:", plant.Soil)
-        st.write("Watering:", plant.Watering)
-        st.write("Sun Exposure:", plant.SunExposure)
-        st.write("Location:", plant.location)
+        st.write(plant.grow_right())
 
     # option 2: show the top 3 plants
     elif choice == "Best Plants for My City":
