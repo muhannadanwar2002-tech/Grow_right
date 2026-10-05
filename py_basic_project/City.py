@@ -70,15 +70,15 @@ class City :
         
         if score>= 80:                                              #threshold set to 80 or above for plants that are very suitable
         
-            retun "Suitability Score:" , score , "%\nHighly Suitable" 
+            return f"Suitability Score: {score}%\nHighly Suitable"  
       
         elif score >= 60:                                           #threshold set to 60 for just suitable 
         
-            retun "Suitability Score:" , score , "%\nSuitable"
+            return f"Suitability Score: {score}%\nSuitable" 
         
     
         else :
-             retun "Suitability Score:" , score , "%\nNot Suitable"                #otherwise not suitable
+             return f"Suitability Score: {score}%\nNot Suitable"                #otherwise not suitable
         
             
             
