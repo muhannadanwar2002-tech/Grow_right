@@ -20,8 +20,15 @@ class Plants:
 #
     def grow_right(self):
         
-        return "Optimal Temperature range:" , self.temp[0]," to ",self.temp[1] ,"\nHumidity: " , self.hum,"\nBest Season:", self.P_season,"\nSoil:", self.Soil,"\nWatering:", self.Watering,"\nSun Exposure:", self.SunExposure,"\nLocation:", self.location
-
+        return (
+            f"Optimal Temperature range: {self.temp[0]} to {self.temp[1]}\n"
+            f"Humidity: {self.hum}\n"
+            f"Best Season: {self.P_season}\n"
+            f"Soil: {self.Soil}\n"
+            f"Watering: {self.Watering}\n"
+            f"Sun Exposure: {self.SunExposure}\n"
+            f"Location: {self.location}"
+            )
 #by calling the Plant class we can create Objects where each object is a plant this way its more simpler when visualizing it as code rather than having them as classes( which we did do :) )
 #and can be grouped together in a simple dictionary and only that dictionary is imported to other classes 
     
