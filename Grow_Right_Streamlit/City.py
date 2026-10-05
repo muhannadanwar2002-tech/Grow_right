@@ -70,20 +70,16 @@ class City :
         
         if score>= 80:                                              #threshold set to 80 or above for plants that are very suitable
         
-            print("Suitability Score:" , score , "%")               
-        
-            print("Highly Suitable") 
+            return f"Suitability Score: {score}%\nHighly Suitable"  
       
         elif score >= 60:                                           #threshold set to 60 for just suitable 
         
-            print("Suitability Score:" , score , "%")
+            return f"Suitability Score: {score}%\nSuitable" 
         
-            print("Suitable")
     
         else :
-            print("Suitability Score:" , score, "%")                #otherwise not suitable
+             return f"Suitability Score: {score}%\nNot Suitable"                #otherwise not suitable
         
-            print("Not Suitable")
             
             
             
