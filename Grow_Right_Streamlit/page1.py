@@ -2,10 +2,10 @@ import streamlit as st
 from City import Dictionary_Cities
 from Plants import Dictionary_Plants
 
-# page settings
+# page title using the config
 st.set_page_config(page_title="Grow Right")
 
-# simple colors
+# simple colors by using markdown (which is used to display string) to write and display the css/ html codde for the color background
 st.markdown("""
 <style>
 .stApp {
@@ -25,7 +25,7 @@ h1, h2, h3, p, label {
 st.title("Grow Right")
 st.write("Saudi Planting Advisor")
 
-# choose what the user wants
+# radio button for choices given to user
 choice = st.radio(
     "Choose an option:",
     ["Grow a Plant", "Best Plants for My City"]
