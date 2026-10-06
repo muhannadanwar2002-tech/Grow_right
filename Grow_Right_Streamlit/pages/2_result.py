@@ -3,7 +3,7 @@ from City import Dictionary_Cities
 from Plants import Dictionary_Plants
 
 # page settings
-st.set_page_config(page_title="Result", page_icon="🌿")
+st.set_page_config(page_title="Result")
 
 # same simple design
 st.markdown("""
@@ -21,7 +21,7 @@ h1, h2, h3, p, label {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🌿 Result")
+st.title("Result")
 
 # make sure the user came from the first page
 if "choice" not in st.session_state:
