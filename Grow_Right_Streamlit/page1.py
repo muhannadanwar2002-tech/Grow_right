@@ -3,7 +3,7 @@ from City import Dictionary_Cities
 from Plants import Dictionary_Plants
 
 # page settings
-st.set_page_config(page_title="Grow Right", page_icon="🌱")
+st.set_page_config(page_title="Grow Right")
 
 # simple colors
 st.markdown("""
@@ -22,7 +22,7 @@ h1, h2, h3, p, label {
 """, unsafe_allow_html=True)
 
 # title
-st.title("🌱 Grow Right")
+st.title("Grow Right")
 st.write("Saudi Planting Advisor")
 
 # choose what the user wants
