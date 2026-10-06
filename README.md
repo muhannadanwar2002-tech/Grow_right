@@ -1,28 +1,20 @@
-# 🌱 Grow Right
+# Grow Right
 
-**Grow Right** is a simple Saudi planting advisor built with **Python** and **Streamlit**.
+Grow Right is a simple python project web application
+its sole purpose is to check whether a plant is suitalble in a city's enviornment
+while giving tips and guides to the user or filling the curiosity of the user on which are the top plants in the user defined city 
 
-The project helps the user:
-1. Check whether a selected plant is suitable for a selected Saudi city.
-2. View a growing guide for the selected plant.
-3. Find the top 3 plants for a selected city.
-
-The Streamlit interface uses the existing `City` and `Plants` classes without changing the main project logic.
-
----
 
 ## Project Idea
 
 Different plants prefer different temperatures, humidity levels, seasons, soil types, watering schedules, and sunlight conditions.
-
 Grow Right compares the plant requirements with the selected city's climate data and gives the plant a suitability score.
-
----
+although the comparisons aren't strict to mathematical fundamentals its closer to a agricultural wise.(which will be discussed below)
 
 ## Features
 
 ### 1. Grow a Plant
-The user selects a city and a plant. The application displays:
+The user selects a city and a plant. And the application displays:
 - Suitability Score
 - Suitability Status
 - Optimal Temperature
@@ -32,83 +24,57 @@ The user selects a city and a plant. The application displays:
 - Watering
 - Sun Exposure
 - Growing Location
+by calling a function in plant class called grow_right()
 
 ### 2. Best Plants for My City
-The user selects a city, and the application displays the three plants with the highest suitability scores using the existing `top_3_plants()` function.
-
----
+The user selects a city, and the application displays the three plants with the highest suitability scores using the existing top_3_plants() function.
 
 ## Streamlit Pages
 
-### `page1.py`
+### page1.py
 The first page lets the user choose between:
-- **Grow a Plant**
-- **Best Plants for My City**
+1-Grow a Plant
 
-It stores the user's selections using `st.session_state` and then opens the result page.
+2-Best Plants for My City
 
-### `pages/2_result.py`
+It stores the user's selections using st.session_state and then opens the result page.
+
+### pages/2_result.py
 The second page reads the stored choices and displays the result.
 
 It imports and uses:
-```python
-Dictionary_Cities
-Dictionary_Plants
-```
-
----
-
-## Project Structure
-
-```text
-Grow_Right_Streamlit/
-│
-├── page1.py
-├── City.py
-├── Plants.py
-├── Usercml.py
-├── requirements.txt
-│
-└── pages/
-    └── 2_result.py
-```
-
----
+1-Dictionary_Cities
+2-Dictionary_Plants
+and uses them for calling the functions stated below
 
 ## Main Files
 
-### `City.py`
-Contains the `City` class and the Saudi city database.
+### City.py
+Contains the City class and the Saudi city database.
 
 Main functions:
-```python
-score_calculator()
-suitability()
-top_3_plants()
-```
+1-score_calculator()
+2-suitability()
+3-top_3_plants()
 
-### `Plants.py`
-Contains the `Plants` class and the plant database.
 
-Each plant stores:
-- Temperature range
-- Humidity
-- Preferred season
-- Soil
-- Watering
-- Sun exposure
-- Location
+### Plants.py
+Contains the Plants class and the plant database.
+Main function:
+1-grow_right():
+    where Each plant returns:
+      1-Temperature range
+      2-Humidity
+      3-Preferred season
+      4-Soil
+      5-Watering
+      6-Sun exposure
+      7-Location
 
-### `Usercml.py`
-The original command-line version of the project.
+### Usercml.py(naming should have been user_by_python) 
+since it's the user interface interms of regular python outputs 
 
-### `requirements.txt`
-Contains the package needed to run the Streamlit interface.
-
----
-
-## Cities Included
-
+## Cities Included based on database collected:
 - Riyadh
 - Makkah
 - Madinah
@@ -116,11 +82,7 @@ Contains the package needed to run the Streamlit interface.
 - Al Qassim
 - Al Baha
 - Abha
-
----
-
-## Plants Included
-
+## Plants Included based on database collected:
 - Rosemary
 - Tomato
 - Lettuce
@@ -130,163 +92,74 @@ Contains the package needed to run the Streamlit interface.
 - Thyme
 - Parsley
 
----
-
-## Suitability Score
+## Score Calculation
 
 The score uses temperature and humidity.
 
 ### Temperature
-- **60 points** if the city temperature is inside the plant's preferred range.
-- **30 points** if it is within a 5°C margin outside the preferred range.
-- **0 points** otherwise.
+- 60 points if the city temperature is inside the plant's preferred range.
+- 30 points if it is within a 5°C margin outside the preferred range.
+- 0 points otherwise.
 
 ### Humidity
 Humidity is represented as:
-```text
-Low
-Medium
-High
-```
-
+1-Low = 1
+2-Medium = 2
+3-High = 3
+which is then represented within the calculation by using numerical value
 The humidity score is:
-- **40 points** when the plant and city humidity levels match.
-- **20 points** when there is one level of difference.
-- **0 points** when the difference is larger.
-
+-40 points when the plant and city humidity levels match
+-20 points when there is one level of difference.
+- 0 points when the difference is larger.
+and this is because that plants can thrive in somewhat extreme condition
+that is why we stated in the beginning that the computation isnt strict when comparing since
+the temperature and humidity are just preferable by the plant meaning it can thrive above or below its preferred range
+which is what agriculture is all about.
 ### Final Score
-```text
 Temperature Score + Humidity Score
-```
-
 Maximum score:
-```text
 100%
-```
-
----
-
 ## Suitability Status
 
-```text
 80% or more  → Highly Suitable
 60% or more  → Suitable
 Below 60%    → Not Suitable
-```
 
----
+## Installation of streamlit
 
-## Technologies Used
-
-- Python
-- Streamlit
-- Object-Oriented Programming
-- Dictionaries
-- Lists
-- Functions
-- Classes and Objects
-
----
-
-## Installation
-
-Open Terminal inside the project folder.
-
-Install the requirements:
-
-```bash
-python3 -m pip install -r requirements.txt
-```
-
-Or install Streamlit directly:
-
-```bash
 python3 -m pip install streamlit
-```
 
----
+## Run the Application via terminal
 
-## Run the Application
-
-Run:
-
-```bash
 python3 -m streamlit run page1.py
-```
-
-Streamlit will show a local URL similar to:
-
-```text
-http://localhost:8501
-```
-
-Open it in your browser if it does not open automatically.
-
----
-
-## How to Use
 
 ### Grow a Plant
 1. Open the application.
-2. Select **Grow a Plant**.
+2. Select Grow a Plant.
 3. Select a city.
 4. Select a plant.
-5. Press **Continue**.
+5. Press Continue.
 6. View the suitability score and growing guide.
 
 ### Best Plants for My City
 1. Open the application.
-2. Select **Best Plants for My City**.
+2. Select Best Plants for My City.
 3. Select a city.
-4. Press **Continue**.
+4. Press Continue.
 5. View the top 3 plants.
 
----
-
-## Example
-
-```text
-Option: Grow a Plant
-City: Riyadh
-Plant: Tomato
-```
-
-The application gets the selected city object and calls:
-
-```python
-score = city.score_calculator(plant_name)
-```
-
-Then the result page displays the score and plant information.
-
----
-
 ## Design
-
-The Streamlit interface is intentionally simple and suitable for a student project.
-
-It uses:
+streamlit uses:
 - Light green background
 - Dark green text
 - Green buttons
 - Simple input controls
 - Two pages
 
----
 
 ## Notes
 
-- Streamlit is used mainly for the user interface.
-- The main calculations remain inside the existing project classes.
+- we used css within Streamlit since most of us are more familiar with css and htmls (but we used it for background colors )
 - Plant and city data are stored in dictionaries.
 - The recommendations are based on the temperature and humidity data currently stored in the project.
 - This is an educational planting advisor and is not a replacement for professional agricultural advice.
-
----
-
-## Authors
-
-Developed as a Python student project.
-
-**Project Name:** Grow Right  
-**Application:** Saudi Planting Advisor
