@@ -113,7 +113,7 @@ The humidity score is:
 - 0 points when the difference is larger.
 and this is because that plants can thrive in somewhat extreme condition
 that is why we stated in the beginning that the computation isnt strict when comparing since
-the temperature and humidity are just preferable by the plant meaning it can thrive above or below its preferred range
+the temperature and humidity are just preferable by the plant. Meaning it can thrive above or below its preferred range
 which is what agriculture is all about.
 ### Final Score
 Temperature Score + Humidity Score
@@ -124,14 +124,6 @@ Maximum score:
 80% or more  → Highly Suitable
 60% or more  → Suitable
 Below 60%    → Not Suitable
-
-## Installation of streamlit
-
-python3 -m pip install streamlit
-
-## Run the Application via terminal
-
-python3 -m streamlit run page1.py
 
 ### Grow a Plant
 1. Open the application.
@@ -156,6 +148,9 @@ streamlit uses:
 - Simple input controls
 - Two pages
 
+##Tools Used:
+-streamlit
+-python
 
 ## Notes
 
