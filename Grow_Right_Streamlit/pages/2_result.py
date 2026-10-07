@@ -2,11 +2,11 @@ import streamlit as st
 from City import Dictionary_Cities
 from Plants import Dictionary_Plants
 
-# page title 
+# page title using the config
 st.set_page_config(page_title="Result")
 
 # using css in markdown (is a function used for displaying text ) functions to change the background colors
-st.markdown("""
+st.markdown("""         
 <style>
 .stApp {
     background-color: #F4F8F2;
@@ -23,54 +23,40 @@ h1, h2, h3, p, label {
 
 st.title("Result")
 
-# make sure the user came from the first page
-if "choice" not in st.session_state:
+
+if "choice" not in st.session_state:        # to make sure the user came from the first page we used an which is based on the session_state choice we saved in the first page 
     st.warning("Please go back and choose an option first.")
 
 else:
     choice = st.session_state["choice"]
     city_name = st.session_state["city"]
 
-    # get the city object from the existing dictionary
-    city = Dictionary_Cities[city_name]
+    city = Dictionary_Cities[city_name]         # get the city from the existing city dictionary
 
-    # option 1: check one plant
-    if choice == "Grow a Plant":
-        plant_name = st.session_state["plant"]
 
-        # use the existing class and dictionary
-        plant = Dictionary_Plants[plant_name]
-        score = city.score_calculator(plant_name)
+    if choice == "Grow a Plant":                # the first option is it checks if the choice is plant
+        
+        plant_name = st.session_state["plant"] #takes the name that was saved in session state
 
-        # same result rules used in City.suitability()
-        if score >= 80:
-            status = "Highly Suitable"
-        elif score >= 60:
-            status = "Suitable"
-        else:
-            status = "Not Suitable"
+        plant = Dictionary_Plants[plant_name]  #using the plant dictionary we can derive and assign the plant to plant
+        
+        score = city.score_calculator(plant_name) #returns the score of the plant in that city
+        
+        status=city.suitability(plant_name) #returns the suitability of the plant in that city
+      
+        st.subheader(plant_name.title() + " in " + city.name) #displays the plant in city
+        
+        st.write(status)                                      #displays the suitability
 
-        st.subheader(plant_name.title() + " in " + city.name)
-        st.write("Suitability Score:", score, "%")
-        st.write("Status:", status)
+        st.subheader("Growing Guide") 
+        
+        st.markdown(plant.grow_right().replace("\n","  \n"))# plant information comes from the existing Plants object
 
-        st.subheader("Growing Guide")
-
-        # plant information comes from the existing Plants object
-        st.write("Optimal Temperature:", plant.temp[0], "to", plant.temp[1])
-        st.write("Humidity:", plant.hum)
-        st.write("Best Season:", plant.P_season)
-        st.write("Soil:", plant.Soil)
-        st.write("Watering:", plant.Watering)
-        st.write("Sun Exposure:", plant.SunExposure)
-        st.write("Location:", plant.location)
-
-    # option 2: show the top 3 plants
-    elif choice == "Best Plants for My City":
+    
+    elif choice == "Best Plants for My City":               # option 2: show the top 3 plants
         st.subheader("Top 3 Plants in " + city.name)
 
-        # use the existing function from City class
-        top_plants = city.top_3_plants()
+        top_plants = city.top_3_plants()                    # use the existing function from City class
 
         for plant in top_plants:
             st.write(plant[0].title(), ":", plant[1], "%")
