@@ -2,10 +2,10 @@ import streamlit as st
 from City import Dictionary_Cities
 from Plants import Dictionary_Plants
 
-# page settings
+# page title 
 st.set_page_config(page_title="Result")
 
-# same simple design
+# using css in markdown (is a function used for displaying text ) functions to change the background colors
 st.markdown("""
 <style>
 .stApp {
