@@ -50,7 +50,7 @@ else:
 
         st.subheader("Growing Guide") 
         
-        st.markdown(plant.grow_right().replace("\n","  \n"))# plant information comes from the existing Plants object
+        st.markdown(plant.grow_right().replace("\n","  \n\n"))# plant information comes from the existing Plants object
 
     
     elif choice == "Best Plants for My City":               # option 2: show the top 3 plants
