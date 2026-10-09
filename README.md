@@ -111,10 +111,7 @@ The humidity score is:
 -40 points when the plant and city humidity levels match
 -20 points when there is one level of difference.
 - 0 points when the difference is larger.
-and this is because that plants can thrive in somewhat extreme condition
-that is why we stated in the beginning that the computation isnt strict when comparing since
-the temperature and humidity are just preferable by the plant. Meaning it can thrive above or below its preferred range
-which is what agriculture is all about.
+### and this is because that plants can thrive in somewhat extreme condition that is why we stated in the beginning that the computation isnt strict when comparing since the temperature and humidity are just preferable by the plant. Meaning it can thrive above or below its preferred range.
 ### Final Score
 Temperature Score + Humidity Score
 Maximum score:
